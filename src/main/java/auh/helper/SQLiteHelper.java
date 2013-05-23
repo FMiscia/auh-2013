@@ -3,12 +3,16 @@ package auh.helper;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 import auh.data.KeyVal;
 
-public class SQLiteHelper extends SQLiteOpenHelper
+public class SQLiteHelper
 {
         public static final String  DB_NAME = "data.db";
         public static final Integer DB_VERSION = 1;
+
+        private
+        SQLiteOpenHelper _helper;
 
         private
         SQLiteDatabase _db;
@@ -18,26 +22,30 @@ public class SQLiteHelper extends SQLiteOpenHelper
 
         public SQLiteHelper(Context context)
         {
-                super(context, SQLiteHelper.DB_NAME, null, SQLiteHelper.DB_VERSION);
 
-                this._db = this.getWritableDatabase();
+                this._helper = new SQLiteOpenHelper(context, SQLiteHelper.DB_NAME, null, SQLiteHelper.DB_VERSION) {
+                        @Override
+                        public
+                        void onCreate(SQLiteDatabase db)
+                        {
+                                new KeyVal(db).create();
+                        }
+
+                        @Override
+                        public
+                        void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion)
+                        {}
+                };
+
+                Log.i(this.getClass().getName(), "SQL: prendo il database.");
+                this._db = this._helper.getWritableDatabase();
+
+                new KeyVal(this._db).create();
                 this._kv = new KeyVal(this._db);
         }
 
-        @Override
         public
-        void onCreate(SQLiteDatabase db)
-        {
-                this._kv.create();
-        }
-
-        @Override
-        public
-        void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion)
-        {}
-
-        public
-        KeyVal gtKeyValStore()
+        KeyVal getKeyValStore()
         {
                 return this._kv;
         }

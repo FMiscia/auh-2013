@@ -33,8 +33,7 @@ public class KeyVal implements TableInterface
                                 "'" + KeyVal.VAL + "'" + " text" +
                         ")";
 
-                Log.i(KeyVal.LOG_TAG, "Creating the database.");
-                Log.v(KeyVal.class.getSimpleName(), query);
+                Log.i(KeyVal.LOG_TAG, query);
 
                 this._db.execSQL(query);
 
@@ -44,13 +43,6 @@ public class KeyVal implements TableInterface
         public
         Boolean isFirstTimeAccess()
         {
-                String query = "" +
-                        "SELECT val FROM '" + KeyVal.TABLE + "' WHERE 'key' = 'first_time_access'"
-                ;
-
-                Cursor cursor = this._db.rawQuery(query, new String[] {});
-                Log.i(KeyVal.LOG_TAG, cursor.toString());
-
                 return false;
         }
 }
