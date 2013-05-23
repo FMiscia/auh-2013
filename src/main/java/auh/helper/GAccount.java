@@ -10,7 +10,8 @@ import android.content.Context;
 public class GAccount {
 
         private AccountManager accountManager;
-        private String username = null;
+        private String Gname = null;
+        private String FBname = null;
 
         public GAccount(Context appContext){
                 accountManager = (AccountManager) appContext.getSystemService(Context.ACCOUNT_SERVICE);
@@ -25,14 +26,27 @@ public class GAccount {
                 {
                         if(account.type.equalsIgnoreCase("com.google"))
                         {
-                                this.username = account.name;
-                                break;
+                                this.Gname = account.name;
+                                if(this.FBname!=null)
+                                        break;
+                        }
+
+                        if(account.type.equalsIgnoreCase("com.facebook.auth.login")){
+                                this.FBname = account.name;
+                                if(this.Gname!=null)
+                                        break;
                         }
                 }
         }
 
 
-        public String getUsername() {
-                return username;
+        public String getGname() {
+                return Gname;
         }
+
+        public String getFBname() {
+                return FBname;
+        }
+
+
 }
