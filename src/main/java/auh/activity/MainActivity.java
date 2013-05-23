@@ -2,8 +2,8 @@ package auh.activity;
 
 import android.app.Fragment;
 import auh.data.KeyVal;
+import auh.fragment.LoginFragment;
 import auh.helper.SQLiteHelper;
-import auh.presentation.LoginPanel;
 import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
@@ -27,7 +27,7 @@ public class MainActivity extends Activity
                 KeyVal kv = sqlite.getKeyValStore();
 
                 LayoutInflater inflater =(LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-                mainPanel = new LoginPanel(inflater, (LinearLayout) this.findViewById(R.layout.home_activity), this);
+                mainPanel = new LoginFragment(inflater, (LinearLayout) this.findViewById(R.layout.home_activity), this);
 
                 this.setContentView(mainPanel.getView());
         }

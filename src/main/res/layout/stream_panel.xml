@@ -6,6 +6,13 @@
               android:layout_height="fill_parent"
               android:id="@+id/stream">
 
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:id="@+id/username"
+                android:layout_gravity="center"/>
+
         <ListView android:id="@+id/list"
                   android:layout_width="fill_parent"
                   android:layout_height="wrap_content"

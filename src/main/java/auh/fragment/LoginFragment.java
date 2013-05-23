@@ -1,4 +1,4 @@
-package auh.presentation;
+package auh.fragment;
 
 import android.app.Activity;
 import android.app.Fragment;
@@ -13,13 +13,13 @@ import auh.activity.StreamActivity;
 import auh.helper.GAccount;
 import it.auh.R;
 
-public class LoginPanel extends Fragment {
+public class LoginFragment extends Fragment {
 
         private View view;
 
         private TextView user;
 
-        public LoginPanel(final LayoutInflater inflater, final ViewGroup group, final Activity activity){
+        public LoginFragment(final LayoutInflater inflater, final ViewGroup group, final Activity activity){
                 super();
 
                 this.view = inflater.inflate(R.layout.login_panel, group, true);
@@ -44,7 +44,7 @@ public class LoginPanel extends Fragment {
                         }
                 });
 
-                facebookButton.setOnClickListener(new View.OnClickListener(){
+                facebookButton.setOnClickListener(new View.OnClickListener() {
 
                         @Override
                         public void onClick(View view) {
@@ -57,6 +57,7 @@ public class LoginPanel extends Fragment {
                 });
         }
 
+        @Override
         public View getView(){
                 return this.view;
         }
