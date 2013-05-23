@@ -3,7 +3,7 @@ package auh.activity;
 import android.app.Fragment;
 import auh.data.KeyVal;
 import auh.helper.SQLiteHelper;
-import presentation.LoginPanel;
+import auh.presentation.LoginPanel;
 import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
@@ -26,8 +26,8 @@ public class MainActivity extends Activity
                 SQLiteHelper sqlite = new SQLiteHelper(this);
                 KeyVal kv = sqlite.getKeyValStore();
 
-                LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-                mainPanel = new LoginPanel(inflater,(LinearLayout)findViewById(R.id.home));
+                LayoutInflater inflater =(LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+                mainPanel = new LoginPanel(inflater, (LinearLayout) this.findViewById(R.id.home), this);
 
                 this.setContentView(mainPanel.getView());
         }

@@ -1,4 +1,4 @@
-package helper;
+package auh.helper;
 
 import android.accounts.Account;
 import android.accounts.AccountManager;

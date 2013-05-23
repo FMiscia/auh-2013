@@ -1,4 +1,4 @@
-package presentation;
+package auh.presentation;
 
 import android.app.Fragment;
 import android.view.LayoutInflater;
@@ -15,7 +15,7 @@ public class WelcomePanel extends Fragment {
 
         public WelcomePanel(LayoutInflater inflater, ViewGroup group){
                 super();
-                this.view = inflater.inflate(R.layout.welcome_panel,group,true);
+                this.view = inflater.inflate(R.layout.stream_panel,group,true);
 
         }
 

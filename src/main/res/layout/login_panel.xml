@@ -3,23 +3,40 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:orientation="vertical"
               android:layout_width="match_parent"
-              android:layout_height="match_parent">
+              android:layout_height="match_parent"
+              android:id="@+id/login">
 
-
-    <TextView
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="User"
-            android:id="@+id/user"
-            android:layout_marginTop="26dp"
-            android:layout_below="@+id/welcomeText" android:layout_centerHorizontal="true"/>
-    <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Benvenuto"
-            android:id="@+id/welcomeText" android:layout_alignParentTop="true" android:layout_alignParentLeft="true"
-            android:layout_marginLeft="20dp" android:layout_marginTop="22dp"/>
+            android:text="Accedi al tuo account"
+            android:id="@+id/welcomeText"
+            android:layout_marginTop="85dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"/>
+
+        <ImageButton
+                android:layout_width="180dp"
+                android:layout_height="45dp"
+                android:id="@+id/facebookConnect"
+                android:layout_marginTop="31dp"
+                android:background="@drawable/icon_facebook_2"
+                android:layout_alignParentStart="false"
+                android:layout_alignParentEnd="false"
+                android:layout_below="@+id/googleConnect"
+                android:layout_centerHorizontal="true"/>
+
+        <ImageButton
+                android:layout_width="180dp"
+                android:layout_height="45dp"
+                android:id="@+id/googleConnect"
+                android:background="@drawable/icon_google_plus"
+                android:layout_alignParentStart="false"
+                android:layout_alignParentEnd="false"
+                android:layout_marginTop="56dp"
+                android:layout_below="@+id/welcomeText"
+                android:layout_alignLeft="@+id/facebookConnect"/>
+
 </RelativeLayout>
 
 
