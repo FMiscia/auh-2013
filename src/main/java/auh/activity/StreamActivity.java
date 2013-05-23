@@ -11,6 +11,7 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 import auh.adapter.StreamAdapter;
+import auh.helper.NativeApp;
 import it.auh.R;
 
 public class StreamActivity extends Activity
@@ -23,21 +24,16 @@ public class StreamActivity extends Activity
         {
                 super.onCreate(state);
 
-                this.username = getIntent().getExtras().getString("username");
+                this.username = this.getIntent().getExtras().getString("username");
                 this.setContentView(R.layout.stream_panel);
 
                 TextView userView = (TextView) findViewById(R.id.username);
                 userView.setText(this.username);
 
-                ArrayList<String> data = new ArrayList<String>();
-                data.add("RFC 1");
-                data.add("RFC 2");
-                data.add("RFC 3");
-
                 ListView list =(ListView) findViewById(R.id.list);
 
                 // Getting adapter by passing xml data ArrayList
-                adapter = new StreamAdapter(this, data);
+                adapter = new StreamAdapter(this, NativeApp.getInstance().getRfcs());
                 list.setAdapter(adapter);
 
                 // Click event for single list row
@@ -47,7 +43,7 @@ public class StreamActivity extends Activity
                         {
                                 Intent i = new Intent(StreamActivity.this, RfcActivity.class);
                                 Bundle extras = new Bundle();
-                                //extras.putString("username", fname);
+                                extras.putInt("rfc_index", position);
                                 i.putExtras(extras);
                                 StreamActivity.this.startActivity(i);
                         }

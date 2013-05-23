@@ -5,25 +5,22 @@ import auh.helper.Skill;
 import java.util.HashMap;
 import java.util.LinkedList;
 
-/**
- * Created by francesco on 23/05/13.
- */
-public class User {
-
+public class User
+{
         private String name;
 
         private String info;
 
-        private HashMap<String,Integer> skill;
+        private HashMap<String,Integer> skill = new HashMap<String, Integer>();
 
-        private LinkedList<User> skillGiver;
+        private LinkedList<User> skillGiver = new LinkedList<User>();
 
         public User(String n, String i){
                 this.name = n;
                 this.info = i;
-                for(int j=0; j<Skill.skills.length; j++)
+                for(int j=0; j<Skill.skills.length; j++) {
                         this.skill.put(Skill.skills[j],0);
-                this.skillGiver = null;
+                }
         }
 
         public String getName() {
@@ -63,8 +60,8 @@ public class User {
         }
         
         public void addSkillGiver(User... users){
-                for(User u : users){
-                        this.skillGiver.add(u);
+                for (int i = 0; i < users.length; ++i) {
+                        this.skillGiver.add(users[i]);
                 }
         }
 }

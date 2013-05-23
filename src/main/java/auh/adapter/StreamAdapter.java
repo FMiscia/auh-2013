@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
+import auh.domain.Rfc;
 import it.auh.R;
 
 public class StreamAdapter extends BaseAdapter {
@@ -17,12 +18,12 @@ public class StreamAdapter extends BaseAdapter {
         Activity _activity;
 
         private
-        ArrayList<String> _data;
+        ArrayList<Rfc> _data;
 
         private static
         LayoutInflater _inflater = null;
 
-        public StreamAdapter(Activity activity, ArrayList<String> data)
+        public StreamAdapter(Activity activity, ArrayList<Rfc> data)
         {
                 this._activity = activity;
                 this._data = data;
@@ -54,7 +55,7 @@ public class StreamAdapter extends BaseAdapter {
 
                 TextView title =(TextView) vi.findViewById(R.id.title);
 
-                title.setText(this._data.get(position));
+                title.setText(this._data.get(position).getTitle());
 
                 return vi;
         }
