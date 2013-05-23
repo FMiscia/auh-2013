@@ -10,8 +10,6 @@ public class MainActivity extends Activity
         void onCreate(Bundle state)
         {
                 super.onCreate(state);
-
-                this.setContentView(null);
         }
 
         @Override
