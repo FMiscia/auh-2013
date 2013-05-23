@@ -27,7 +27,7 @@ public class MainActivity extends Activity
                 KeyVal kv = sqlite.getKeyValStore();
 
                 LayoutInflater inflater =(LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-                mainPanel = new LoginPanel(inflater, (LinearLayout) this.findViewById(R.id.home), this);
+                mainPanel = new LoginPanel(inflater, (LinearLayout) this.findViewById(R.layout.home_activity), this);
 
                 this.setContentView(mainPanel.getView());
         }

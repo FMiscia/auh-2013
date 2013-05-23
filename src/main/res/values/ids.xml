@@ -1,6 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-        <item name="login" type="id">login_activity.xml</item>
-        <item name="home" type="id"/>
-        <item name="stream" type="id">stream</item>
+        <item type="id" name="example_id" >file_pathl</item>
 </resources>
