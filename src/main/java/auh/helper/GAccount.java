@@ -16,11 +16,11 @@ public class GAccount {
         public GAccount(Context appContext){
                 accountManager = (AccountManager) appContext.getSystemService(Context.ACCOUNT_SERVICE);
                 Account[] accounts = accountManager.getAccounts();
-                this.setUserFromGoogle(accounts);
+                this.setUser(accounts);
 
         }
 
-        private void setUserFromGoogle(Account[] accounts){
+        private void setUser(Account[] accounts){
 
                 for(Account account: accounts)
                 {
@@ -41,11 +41,11 @@ public class GAccount {
 
 
         public String getGname() {
-                return Gname;
+                return this.Gname;
         }
 
         public String getFBname() {
-                return FBname;
+                return this.FBname;
         }
 
 
