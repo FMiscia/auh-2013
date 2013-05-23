@@ -6,6 +6,7 @@ import java.util.HashMap;
 import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.TextView;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
@@ -14,17 +15,19 @@ import auh.adapter.StreamAdapter;
 import it.auh.R;
 
 public class StreamActivity extends Activity
-{
-        ListView list;
+
         StreamAdapter adapter;
+        private String username;
 
         @Override
-        public void onCreate(Bundle savedInstanceState) {
-                super.onCreate(savedInstanceState);
-
+        protected void onCreate(Bundle state){
+                super.onCreate(state);
+                this.username = getIntent().getExtras().getString("username");
                 this.setContentView(R.layout.stream_panel);
+                TextView userView = (TextView) findViewById(R.id.username);
+                userView.setText(this.username);
 
-                ArrayList<HashMap<String, String>> list = new ArrayList<HashMap<String, String>>();
+ArrayList<HashMap<String, String>> list = new ArrayList<HashMap<String, String>>();
 
                 HashMap<String, String> keyval = new HashMap<String, String>();
                 keyval.put("key", "val");
@@ -49,5 +52,48 @@ public class StreamActivity extends Activity
                                 Log.i(StreamActivity.class.getName(), "clickato");
                         }
                 });
+
+        }
+
+        @Override
+        protected
+        void onRestart()
+        {
+                super.onRestart();
+        }
+
+        @Override
+        protected
+        void onStart()
+        {
+                super.onStart();
+        }
+
+        @Override
+        protected
+        void onResume()
+        {
+                super.onResume();
+        }
+
+        @Override
+        protected
+        void onPause()
+        {
+                super.onPause();
+        }
+
+        @Override
+        protected
+        void onStop()
+        {
+                super.onStop();
+        }
+
+        @Override
+        protected
+        void onDestroy()
+        {
+                super.onDestroy();
         }
 }
