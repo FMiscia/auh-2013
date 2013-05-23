@@ -22,7 +22,6 @@ public class SQLiteHelper
 
         public SQLiteHelper(Context context)
         {
-
                 this._helper = new SQLiteOpenHelper(context, SQLiteHelper.DB_NAME, null, SQLiteHelper.DB_VERSION) {
                         @Override
                         public
@@ -37,10 +36,7 @@ public class SQLiteHelper
                         {}
                 };
 
-                Log.i(this.getClass().getName(), "SQL: prendo il database.");
                 this._db = this._helper.getWritableDatabase();
-
-                new KeyVal(this._db).create();
                 this._kv = new KeyVal(this._db);
         }
 
