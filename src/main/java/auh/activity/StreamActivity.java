@@ -1,24 +1,58 @@
 package auh.activity;
 
+import java.util.ArrayList;
+
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
+import android.widget.ListView;
+import auh.adapter.StreamAdapter;
 import it.auh.R;
 
-/**
- * Created by francesco on 23/05/13.
- */
-public class StreamActivity extends Activity {
-
+public class StreamActivity extends Activity
+{
+        StreamAdapter adapter;
         private String username;
 
         @Override
-        protected void onCreate(Bundle state){
+        protected void onCreate(Bundle state)
+        {
                 super.onCreate(state);
+
                 this.username = getIntent().getExtras().getString("username");
                 this.setContentView(R.layout.stream_panel);
+
                 TextView userView = (TextView) findViewById(R.id.username);
                 userView.setText(this.username);
+
+                ArrayList<String> data = new ArrayList<String>();
+                data.add("RFC 1");
+                data.add("RFC 2");
+                data.add("RFC 3");
+
+                ListView list =(ListView) findViewById(R.id.list);
+
+                // Getting adapter by passing xml data ArrayList
+                adapter = new StreamAdapter(this, data);
+                list.setAdapter(adapter);
+
+                // Click event for single list row
+                list.setOnItemClickListener(new OnItemClickListener() {
+                        @Override
+                        public void onItemClick(AdapterView<?> parent, View view, int position, long id)
+                        {
+                                Intent i = new Intent(StreamActivity.this, RfcActivity.class);
+                                Bundle extras = new Bundle();
+                                //extras.putString("username", fname);
+                                i.putExtras(extras);
+                                StreamActivity.this.startActivity(i);
+                        }
+                });
+
         }
 
         @Override

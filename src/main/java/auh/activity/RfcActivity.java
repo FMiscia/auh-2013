@@ -4,10 +4,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import it.auh.R;
 
-/**
- * Created by francesco on 23/05/13.
- */
-public class RFCActivity extends Activity {
+public class RfcActivity extends Activity {
 
         @Override
         protected void onCreate(Bundle state){
