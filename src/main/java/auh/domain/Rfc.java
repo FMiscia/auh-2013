@@ -11,7 +11,7 @@ public class Rfc {
 
         private String content;
 
-        private String topic;
+        private LinkedList<String> topics;
 
         private Calendar start;
 
@@ -35,12 +35,8 @@ public class Rfc {
                 this.content = content;
         }
 
-        public String getTopic() {
-                return topic;
-        }
-
-        public void setTopic(String topic) {
-                this.topic = topic;
+        public LinkedList<String> getTopic() {
+                return topics;
         }
 
         public Calendar getStart() {
@@ -72,6 +68,11 @@ public class Rfc {
                                 if(this.comments.get(i).getRank()<comment.getRank())
                                         this.comments.set(i,comment);
                 }
+        }
+
+        public void addTopic(String ...topic){
+                for(String t: topics)
+                        this.topics.add(t);
         }
 
 

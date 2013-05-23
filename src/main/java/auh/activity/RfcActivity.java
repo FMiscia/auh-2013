@@ -2,12 +2,14 @@ package auh.activity;
 
 import android.app.Activity;
 import android.os.Bundle;
+import it.auh.R;
 
 public class RfcActivity extends Activity {
 
         @Override
         protected void onCreate(Bundle state){
                 super.onCreate(state);
+                this.setContentView(R.layout.rfc_activity);
         }
 
         @Override

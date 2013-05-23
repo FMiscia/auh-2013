@@ -1,5 +1,8 @@
 package auh.helper;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by francesco on 23/05/13.
  */
@@ -22,4 +25,22 @@ public class Skill {
         public static final String ARCHITETTURA = "architettura";
 
         public static final String MEDICINA = "medicina";
+
+        public static String[] skills;
+
+        static {
+                Skill.skills = new String[]{
+                        Skill.MATEMATICA,
+                        Skill.ECONOMIA,
+                        Skill.INFORMATICA,
+                        Skill.INGEGNERIA_CIVILE,
+                        Skill.INGEGNERIA_AMBIENTALE,
+                        Skill.SOCIOLOGIA,
+                        Skill.PSICOLOGIA,
+                        Skill.ARCHITETTURA,
+                        Skill.MEDICINA
+                };
+        }
+
+
 }

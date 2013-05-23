@@ -1,6 +1,9 @@
 package auh.domain;
 
+import auh.helper.Skill;
+
 import java.util.HashMap;
+import java.util.LinkedList;
 
 /**
  * Created by francesco on 23/05/13.
@@ -13,9 +16,14 @@ public class User {
 
         private HashMap<String,Integer> skill;
 
+        private LinkedList<User> skillGiver;
+
         public User(String n, String i){
                 this.name = n;
                 this.info = i;
+                for(int j=0; j<Skill.skills.length; j++)
+                        this.skill.put(Skill.skills[j],0);
+                this.skillGiver = null;
         }
 
         public String getName() {
@@ -48,5 +56,15 @@ public class User {
                         return true;
                 }
                 return false;
+        }
+
+        public LinkedList<User> getSkillGiver() {
+                return skillGiver;
+        }
+        
+        public void addSkillGiver(User... users){
+                for(User u : users){
+                        this.skillGiver.add(u);
+                }
         }
 }
