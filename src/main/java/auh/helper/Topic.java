@@ -23,5 +23,19 @@ public class Topic {
 
         public static final String TECNOLOGIA = "tecnologia";
 
+        public static String[] Topics;
 
+        static {
+                Topic.Topics = new String[]{
+                        Topic.URBANISTICA,
+                        Topic.ATTIVITA_SOCIALI,
+                        Topic.SALUTE,
+                        Topic.SPORT,
+                        Topic.TURISMO,
+                        Topic.LAVORO,
+                        Topic.TRASPORTI,
+                        Topic.ISTRUZIONE,
+                        Topic.TECNOLOGIA
+                };
+        }
 }

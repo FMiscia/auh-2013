@@ -12,6 +12,10 @@ public class Comment {
 
         private Integer rank=0;
 
+        public Comment(User u, String c){
+                this.creator = u;
+                this.content = c;
+        }
 
         public String getContent() {
                 return content;
