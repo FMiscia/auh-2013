@@ -1,23 +1,31 @@
 package auh.domain;
 
+import auh.activity.RfcActivity;
+
 import java.util.*;
 
-/**
- * Created by francesco on 23/05/13.
- */
-public class Rfc {
+public class Rfc
+{
+        public enum RfcType
+        {
+                SIMPLE,
+                BOOLEAN,
+                CHOISE;
+        }
 
         private String title;
 
         private String content;
 
-        private LinkedList<String> topics;
+        private LinkedList<String> topics = new LinkedList<String>();
 
         private Calendar start;
 
         private Calendar end;
 
-        private LinkedList<Comment> comments;
+        private LinkedList<Comment> comments = new LinkedList<Comment>();
+
+        private RfcType _type;
 
         public String getTitle() {
                 return title;
@@ -51,6 +59,18 @@ public class Rfc {
                 return end;
         }
 
+        public RfcType getType()
+        {
+                return this._type;
+        }
+
+        public Rfc setType(RfcType type)
+        {
+                this._type = type;
+
+                return this;
+        }
+
         public void setEnd(Calendar end) {
                 this.end = end;
         }
@@ -60,19 +80,23 @@ public class Rfc {
         }
 
         public void addComment(Comment comment) {
-                ListIterator<Comment> it = this.comments.listIterator();
-                if(this.comments.getFirst().getRank()<comment.getRank())
-                        this.comments.addFirst(comment);
-                else{
-                        for(int i=0; i<this.comments.size(); i++)
-                                if(this.comments.get(i).getRank()<comment.getRank())
+
+                if (this.comments.isEmpty()) {
+                        this.comments.add(comment);
+                } else {
+                        for(int i=0; i<this.comments.size(); i++) {
+                                if(this.comments.get(i).getRank() < comment.getRank()) {
                                         this.comments.set(i,comment);
+                                        break;
+                                }
+                        }
                 }
         }
 
-        public void addTopic(String ...topic){
-                for(String t: topics)
-                        this.topics.add(t);
+        public void addTopic(String... topic){
+                for (int i = 0; i < topic.length; ++i) {
+                        this.topics.add(topic[i]);
+                }
         }
 
 

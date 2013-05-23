@@ -9,6 +9,10 @@ public class RfcActivity extends Activity {
         @Override
         protected void onCreate(Bundle state){
                 super.onCreate(state);
+
+                 Integer rfcIndex = this.getIntent().getExtras().getInt("rfc_index");
+
+
                 this.setContentView(R.layout.rfc_activity);
         }
 

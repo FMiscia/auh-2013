@@ -23,6 +23,8 @@ public class Topic {
 
         public static final String TECNOLOGIA = "tecnologia";
 
+        public static final String ECONOMIA = "economia";
+
         public static String[] Topics;
 
         static {
