@@ -18,6 +18,8 @@ public class NativeApp extends Application
         private ArrayList<User> _users = new ArrayList<User>();
         private ArrayList<Rfc>  _rfcs = new ArrayList<Rfc>();
 
+        private String loggedName = "username";
+
         private NativeApp(){
                 this.initializeData();
         }
@@ -25,36 +27,36 @@ public class NativeApp extends Application
         private void initializeData()
         {
                 User francesco = new User("Francesco","Mente brillante. In questo momento sta partecipando all'AUHackathon");
-                francesco.addSkill(Skill.INFORMATICA,50);
-                francesco.addSkill(Skill.MATEMATICA,30);
-                francesco.addSkill(Skill.SOCIOLOGIA,28);
-                francesco.addSkill(Skill.MEDICINA,18);
+                francesco.addSkill(Skill.INFORMATICA,50.0);
+                francesco.addSkill(Skill.MATEMATICA,30.0);
+                francesco.addSkill(Skill.SOCIOLOGIA,28.0);
+                francesco.addSkill(Skill.MEDICINA,18.0);
 
                 User daniele = new User("Daniele","Un super nerd, amante della linea di comando e soprattutto di Nano e non Vim");
-                daniele.addSkill(Skill.INFORMATICA,85);
-                daniele.addSkill(Skill.MATEMATICA,20);
-                daniele.addSkill(Skill.ECONOMIA,23);
-                francesco.addSkill(Skill.PSICOLOGIA,19);
+                daniele.addSkill(Skill.INFORMATICA,85.0);
+                daniele.addSkill(Skill.MATEMATICA,20.0);
+                daniele.addSkill(Skill.ECONOMIA,23.0);
+                francesco.addSkill(Skill.PSICOLOGIA,19.0);
 
                 User genni = new User("Genni","Morosa di Daniele,studentessa di Medicina");
-                genni.addSkill(Skill.MEDICINA,88);
-                genni.addSkill(Skill.INFORMATICA,18);
-                genni.addSkill(Skill.PSICOLOGIA,25);
-                genni.addSkill(Skill.SOCIOLOGIA,10);
+                genni.addSkill(Skill.MEDICINA,88.0);
+                genni.addSkill(Skill.INFORMATICA,18.0);
+                genni.addSkill(Skill.PSICOLOGIA,25.0);
+                genni.addSkill(Skill.SOCIOLOGIA,10.0);
 
                 User francesca = new User("Francesca","Morosa di Francesco (il genio brillante), studentessa in biotecnologie");
-                francesca.addSkill(Skill.ECONOMIA,38);
-                francesca.addSkill(Skill.MEDICINA,50);
-                francesca.addSkill(Skill.ARCHITETTURA,70);
-                francesca.addSkill(Skill.PSICOLOGIA,47);
-                francesca.addSkill(Skill.SOCIOLOGIA,34);
+                francesca.addSkill(Skill.ECONOMIA,38.0);
+                francesca.addSkill(Skill.MEDICINA,50.0);
+                francesca.addSkill(Skill.ARCHITETTURA,70.0);
+                francesca.addSkill(Skill.PSICOLOGIA,47.0);
+                francesca.addSkill(Skill.SOCIOLOGIA,34.0);
 
                 User giuseppe = new User("Giuseppe","Insegnante all'istituto tecnico industriale di L'Aquila, ingegnere civile.");
-                giuseppe.addSkill(Skill.ARCHITETTURA,61);
-                giuseppe.addSkill(Skill.INGEGNERIA_AMBIENTALE,47);
-                giuseppe.addSkill(Skill.INGEGNERIA_CIVILE,90);
-                giuseppe.addSkill(Skill.ECONOMIA,63);
-                giuseppe.addSkill(Skill.INFORMATICA,25);
+                giuseppe.addSkill(Skill.ARCHITETTURA,61.0);
+                giuseppe.addSkill(Skill.INGEGNERIA_AMBIENTALE,47.0);
+                giuseppe.addSkill(Skill.INGEGNERIA_CIVILE,90.0);
+                giuseppe.addSkill(Skill.ECONOMIA,63.0);
+                giuseppe.addSkill(Skill.INFORMATICA,25.0);
 
                 francesco.addSkillGiver(daniele,genni,giuseppe);
                 daniele.addSkillGiver(francesco,giuseppe);
@@ -136,5 +138,13 @@ public class NativeApp extends Application
         ArrayList<Rfc> getRfcs()
         {
                 return this._rfcs;
+        }
+
+        public void setLoggedName(String name){
+                this.loggedName = name;
+        }
+
+        public String getLoggedName(){
+                return this.loggedName;
         }
 }

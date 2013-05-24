@@ -11,7 +11,7 @@ public class User
 
         private String info;
 
-        private HashMap<String,Integer> skill = new HashMap<String, Integer>();
+        private HashMap<String,Double> skill = new HashMap<String, Double>();
 
         private LinkedList<User> skillGiver = new LinkedList<User>();
 
@@ -19,7 +19,7 @@ public class User
                 this.name = n;
                 this.info = i;
                 for(int j=0; j<Skill.skills.length; j++) {
-                        this.skill.put(Skill.skills[j],0);
+                        this.skill.put(Skill.skills[j],0.0);
                 }
         }
 
@@ -39,17 +39,18 @@ public class User
                 this.info = info;
         }
 
-        public HashMap<String, Integer> getSkill() {
+        public HashMap<String, Double> getSkill() {
                 return skill;
         }
 
-        public void setSkill(HashMap<String, Integer> skill) {
+        public void setSkill(HashMap<String, Double> skill) {
                 this.skill = skill;
         }
 
-        public Boolean addSkill(String skill, Integer value){
+        public Boolean addSkill(String skill,Double value){
                 if(this.skill.containsKey(skill)){
-                        this.skill.put(skill,value);
+                        Double newValue = this.skill.get(skill) + value;
+                        this.skill.put(skill, newValue);
                         return true;
                 }
                 return false;

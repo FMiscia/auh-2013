@@ -22,7 +22,7 @@
                   android:layout_centerVertical="true"
                   android:layout_toLeftOf="@+id/forward"
                   android:layout_marginLeft="10dp"
-                  android:layout_marginRight="5dp"/>
+                  android:layout_marginRight="5dp" android:layout_alignParentLeft="true"/>
 
         <ImageView android:id="@+id/forward"
                    android:layout_width="wrap_content"

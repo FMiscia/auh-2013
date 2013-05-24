@@ -28,5 +28,10 @@
                 <activity android:name="auh.activity.RfcActivity"
                           android:label="@string/app_name">
                 </activity>
+                <activity
+                        android:name="auh.activity.ProfileActivity"
+                        android:label="@string/app_name">
+                </activity>
+
         </application>
 </manifest>

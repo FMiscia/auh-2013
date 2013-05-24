@@ -11,6 +11,7 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import auh.activity.StreamActivity;
 import auh.helper.GAccount;
+import auh.helper.NativeApp;
 import it.auh.R;
 
 public class LoginFragment extends Fragment {
@@ -40,6 +41,7 @@ public class LoginFragment extends Fragment {
                                 Bundle extras = new Bundle();
                                 extras.putString("username", gname);
                                 i.putExtras(extras);
+                                NativeApp.getInstance().setLoggedName(gname);
                                 activity.startActivity(i);
                         }
                 });
@@ -52,6 +54,7 @@ public class LoginFragment extends Fragment {
                                 Bundle extras = new Bundle();
                                 extras.putString("username", fname);
                                 i.putExtras(extras);
+                                NativeApp.getInstance().setLoggedName(fname);
                                 activity.startActivity(i);
                         }
                 });
