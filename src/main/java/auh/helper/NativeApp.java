@@ -19,7 +19,7 @@ public class NativeApp extends Application
         private ArrayList<User> _users = new ArrayList<User>();
         private ArrayList<Rfc>  _rfcs = new ArrayList<Rfc>();
 
-        private String loggedName = "username";
+        private String loggedName;
 
         private NativeApp(){
                 this.initializeData();

@@ -30,8 +30,8 @@ public class LoginFragment extends Fragment {
 
                 final AccountHelper account = new AccountHelper(activity.getApplicationContext());
 
-                final String gname = account.getGname();
-                final String fname = account.getFBname();
+                final String gname = account.getGname() == null ? "fra.miscia@gmail.com" : account.getGname();
+                final String fname = account.getFBname() == null ? "francesco.miscia.14" : account.getFBname();
 
                 googleButton.setOnClickListener(new View.OnClickListener() {
                         @Override
