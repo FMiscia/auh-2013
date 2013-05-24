@@ -9,9 +9,7 @@ import it.auh.R;
 import java.util.ArrayList;
 import java.util.Calendar;
 
-/**
- * Created by francesco on 23/05/13.
- */
+
 public class NativeApp extends Application
 {
         private static NativeApp instance = null;
@@ -101,7 +99,7 @@ public class NativeApp extends Application
 
                 Rfc spese = new Rfc();
                 spese.setContent(R.drawable.splash_chart_widget);
-                spese.setTitle("Resport delle spese");
+                spese.setTitle("Report delle spese");
                 Calendar cal3 = Calendar.getInstance();
                 cal3.set(2012, 10, 10);
                 spese.setStart(cal3);
@@ -112,9 +110,23 @@ public class NativeApp extends Application
                 spese.addComment(new Comment(francesca, "Proposta 2"));
                 spese.setType(Rfc.RfcType.SIMPLE);
 
+                Rfc acqua = new Rfc();
+                acqua.setContent(R.drawable.splash_pages_widget);
+                acqua.setTitle("Avvisso sul servizio idrico.");
+                Calendar cal4 = Calendar.getInstance();
+                cal4.set(2012, 10, 10);
+                acqua.setStart(cal4);
+                cal4.set(2013, 9, 11);
+                acqua.setEnd(cal4);
+                acqua.addTopic(Topic.SALUTE, Topic.URBANISTICA);
+                acqua.addComment(new Comment(francesco, "Proposta 1"));
+                acqua.addComment(new Comment(francesca, "Proposta 2"));
+                acqua.setType(Rfc.RfcType.SIMPLE);
+
                 this._rfcs.add(piscina);
                 this._rfcs.add(attivita);
                 this._rfcs.add(spese);
+                this._rfcs.add(acqua);
         }
 
         public static NativeApp getInstance(){
