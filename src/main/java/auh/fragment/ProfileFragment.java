@@ -7,17 +7,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
-import android.widget.ExpandableListView;
 import android.widget.TextView;
 import auh.helper.NativeApp;
-import auh.helper.Skill;
 import it.auh.R;
 
 import java.util.ArrayList;
 
-/**
- * Created by francesco on 24/05/13.
- */
 public class ProfileFragment extends Fragment {
 
         private View view;
@@ -27,7 +22,7 @@ public class ProfileFragment extends Fragment {
         public ProfileFragment(final LayoutInflater inflater, final ViewGroup group, final Activity activity){
 
                 super();
-                this.view = inflater.inflate(R.layout.profile_panel, group, true);
+                this.view = inflater.inflate(R.layout.profile_activity, group, true);
                 this.username = (TextView) view.findViewById(R.id.username);
                 this.username.setText(NativeApp.getInstance().getLoggedName());
 

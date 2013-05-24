@@ -42,13 +42,8 @@ public class MainActivity extends Activity
 
                 this.setContentView(mainPanel.getView());
 
-                try {
-                        Thread.sleep(5000);
-                        Intent i = new Intent(this,ProfileActivity.class);
-                        startActivity(i);
-                } catch (InterruptedException e) {
-                        e.printStackTrace();
-                }
+                Intent i = new Intent(this, ProfileActivity.class);
+                this.startActivity(i);
         }
 
         @Override
