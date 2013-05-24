@@ -22,9 +22,7 @@ public class ProfileFragment extends Fragment {
         public ProfileFragment(final LayoutInflater inflater, final ViewGroup group, final Activity activity){
 
                 super();
-                this.view = inflater.inflate(R.layout.profile_activity, group, true);
-                this.username = (TextView) view.findViewById(R.id.username);
-                this.username.setText(NativeApp.getInstance().getLoggedName());
+
 
                 for(int i=0;i< NativeApp.getInstance().getUsers().size();i++){
                         autocomplete.add(NativeApp.getInstance().getUsers().get(i).getName());

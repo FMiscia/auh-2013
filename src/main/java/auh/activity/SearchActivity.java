@@ -4,14 +4,14 @@ import android.app.Activity;
 import android.os.Bundle;
 import it.auh.R;
 
-public class SettingsActivity extends Activity {
+public class SearchActivity extends Activity {
 
         @Override
         protected
         void onCreate(Bundle state){
                 super.onCreate(state);
 
-                this.setContentView(R.layout.settings_activity);
+                this.setContentView(R.layout.search_activity);
         }
 
         @Override
