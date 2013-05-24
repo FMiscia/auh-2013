@@ -1,5 +1,9 @@
 package auh.helper;
 
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
+
 public class Topic {
 
         public static final String URBANISTICA = "urbanistica";
@@ -22,19 +26,19 @@ public class Topic {
 
         public static final String ECONOMIA = "economia";
 
-        public static String[] Topics;
+        public static HashMap<String,String[]> Topics;
 
         static {
-                Topic.Topics = new String[]{
-                        Topic.URBANISTICA,
-                        Topic.ATTIVITA_SOCIALI,
-                        Topic.SALUTE,
-                        Topic.SPORT,
-                        Topic.TURISMO,
-                        Topic.LAVORO,
-                        Topic.TRASPORTI,
-                        Topic.ISTRUZIONE,
-                        Topic.TECNOLOGIA
-                };
+                Topic.Topics = new HashMap<String,String[]>();
+                        Topics.put(Topic.URBANISTICA,new String[]{Skill.ARCHITETTURA,Skill.INGEGNERIA_AMBIENTALE,Skill.INGEGNERIA_CIVILE,Skill.ECONOMIA,Skill.MATEMATICA});
+                        Topics.put(Topic.ATTIVITA_SOCIALI,new String[]{Skill.ECONOMIA,Skill.PSICOLOGIA,Skill.SOCIOLOGIA});
+                        Topics.put(Topic.SALUTE,new String[]{Skill.SOCIOLOGIA,Skill.PSICOLOGIA,Skill.MEDICINA});
+                        Topics.put(Topic.SPORT,new String[]{Skill.MEDICINA,Skill.PSICOLOGIA,Skill.SOCIOLOGIA});
+                        Topics.put(Topic.TURISMO,new String[]{Skill.SOCIOLOGIA, Skill.ECONOMIA,Skill.INFORMATICA,Skill.INGEGNERIA_AMBIENTALE});
+                        Topics.put(Topic.LAVORO,new String[]{Skill.ECONOMIA,Skill.SOCIOLOGIA,Skill.PSICOLOGIA});
+                        Topics.put(Topic.TRASPORTI,new String[]{Skill.ECONOMIA,Skill.INGEGNERIA_AMBIENTALE,Skill.INFORMATICA,Skill.MATEMATICA});
+                        Topics.put(Topic.ISTRUZIONE,new String[]{Skill.PSICOLOGIA,Skill.SOCIOLOGIA,Skill.MATEMATICA,Skill.INFORMATICA,Skill.MEDICINA,Skill.ECONOMIA});
+                        Topics.put(Topic.TECNOLOGIA,new String[]{Skill.INFORMATICA,Skill.ECONOMIA,Skill.MATEMATICA});
+
         }
 }

@@ -42,5 +42,9 @@ public class Skill {
                 };
         }
 
+        public static double getWeightedScore(Integer skillValue){
+                return (1-(1/(Math.pow(skillValue.doubleValue(),0.5))));
+        }
+
 
 }
