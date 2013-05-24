@@ -11,47 +11,27 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
-import android.widget.ImageView;
-import android.widget.ListView;
-import auh.adapter.CommentsAdapter;
-import auh.domain.Comment;
-import auh.domain.Rfc;
+import android.widget.Button;
+import android.widget.Toast;
 import auh.helper.NativeApp;
 import it.auh.R;
 
 import java.util.ArrayList;
-import java.util.Queue;
 
-public class RfcActivity extends Activity {
-
+public class NotifyActivity extends Activity {
         @Override
-        protected void onCreate(Bundle state){
+        protected
+        void onCreate(Bundle state){
                 super.onCreate(state);
-
-                this.setContentView(R.layout.rfc_activity);
-
-                Integer rfcIndex = this.getIntent().getExtras().getInt("rfc_index");
-                Rfc rfc = NativeApp.getInstance().getRfcs().get(rfcIndex);
-
-                CommentsAdapter adapter = new CommentsAdapter(this, R.layout.comment_row, this._getData(rfc.getComments()));
-
-                ImageView splash =(ImageView) this.findViewById(R.id.widget_splash);
-                splash.setImageResource(rfc.getContent());
-
-                ListView list =(ListView) this.findViewById(R.id.comments_list);
-                list.setAdapter(adapter);
+                setContentView(R.layout.notify_panel);
+                Button notify = (Button) findViewById(R.id.notificabutton);
+                notify.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                                Toast.makeText(NotifyActivity.this.getApplicationContext(),"Your Notification Has Been Sent",Toast.LENGTH_LONG).show();
+                        }
+                });
         }
-
-        private ArrayList<Comment> _getData(Queue<Comment> comments)
-        {
-                ArrayList<Comment> cs = new ArrayList<Comment>();
-                for (Comment comment: comments) {
-                        cs.add(comment);
-                }
-
-                return cs;
-        }
-
         @Override
         public boolean onCreateOptionsMenu(Menu menu) {
                 MenuInflater inflater = getMenuInflater();
@@ -75,11 +55,11 @@ public class RfcActivity extends Activity {
                         public boolean onKey(View v, int keyCode, KeyEvent event) {
                                 if ((event.getAction() == KeyEvent.ACTION_DOWN) &&
                                         (keyCode == KeyEvent.KEYCODE_ENTER))  {
-                                        Intent intent = new Intent(RfcActivity.this,ProfileActivity.class);
+                                        Intent intent = new Intent(NotifyActivity.this,ProfileActivity.class);
                                         Bundle bundle = new Bundle();
                                         bundle.putString("username", textView.getText().toString());
                                         intent.putExtras(bundle);
-                                        RfcActivity.this.startActivity(intent);
+                                        NotifyActivity.this.startActivity(intent);
                                 }
                                 return true;
                         }
@@ -111,7 +91,6 @@ public class RfcActivity extends Activity {
                                 return super.onOptionsItemSelected(item);
                 }
         }
-
 
         @Override
         protected
@@ -154,5 +133,4 @@ public class RfcActivity extends Activity {
         {
                 super.onDestroy();
         }
-
 }

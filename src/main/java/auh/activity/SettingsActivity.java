@@ -11,45 +11,22 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
-import android.widget.ImageView;
-import android.widget.ListView;
-import auh.adapter.CommentsAdapter;
-import auh.domain.Comment;
-import auh.domain.Rfc;
 import auh.helper.NativeApp;
 import it.auh.R;
 
 import java.util.ArrayList;
-import java.util.Queue;
 
-public class RfcActivity extends Activity {
+/**
+ * Created by francesco on 23/05/13.
+ */
+public class SettingsActivity extends Activity {
 
         @Override
-        protected void onCreate(Bundle state){
+        protected
+        void onCreate(Bundle state){
                 super.onCreate(state);
 
-                this.setContentView(R.layout.rfc_activity);
-
-                Integer rfcIndex = this.getIntent().getExtras().getInt("rfc_index");
-                Rfc rfc = NativeApp.getInstance().getRfcs().get(rfcIndex);
-
-                CommentsAdapter adapter = new CommentsAdapter(this, R.layout.comment_row, this._getData(rfc.getComments()));
-
-                ImageView splash =(ImageView) this.findViewById(R.id.widget_splash);
-                splash.setImageResource(rfc.getContent());
-
-                ListView list =(ListView) this.findViewById(R.id.comments_list);
-                list.setAdapter(adapter);
-        }
-
-        private ArrayList<Comment> _getData(Queue<Comment> comments)
-        {
-                ArrayList<Comment> cs = new ArrayList<Comment>();
-                for (Comment comment: comments) {
-                        cs.add(comment);
-                }
-
-                return cs;
+                this.setContentView(R.layout.settings_activity);
         }
 
         @Override
@@ -75,11 +52,11 @@ public class RfcActivity extends Activity {
                         public boolean onKey(View v, int keyCode, KeyEvent event) {
                                 if ((event.getAction() == KeyEvent.ACTION_DOWN) &&
                                         (keyCode == KeyEvent.KEYCODE_ENTER))  {
-                                        Intent intent = new Intent(RfcActivity.this,ProfileActivity.class);
+                                        Intent intent = new Intent(SettingsActivity.this,ProfileActivity.class);
                                         Bundle bundle = new Bundle();
                                         bundle.putString("username", textView.getText().toString());
                                         intent.putExtras(bundle);
-                                        RfcActivity.this.startActivity(intent);
+                                        SettingsActivity.this.startActivity(intent);
                                 }
                                 return true;
                         }
@@ -111,7 +88,6 @@ public class RfcActivity extends Activity {
                                 return super.onOptionsItemSelected(item);
                 }
         }
-
 
         @Override
         protected
