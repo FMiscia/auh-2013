@@ -19,7 +19,7 @@
               android:actionViewClass="android.widget.ImageView" />
 
      <item android:id="@+id/add"
-              android:title="Notifica"
+              android:title="Esegui Notifica"
               android:icon="@android:drawable/ic_input_add"
               android:showAsAction="ifRoom|collapseActionView"
               android:actionViewClass="android.widget.ImageView" />
