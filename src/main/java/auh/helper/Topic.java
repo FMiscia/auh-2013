@@ -1,8 +1,5 @@
 package auh.helper;
 
-/**
- * Created by francesco on 23/05/13.
- */
 public class Topic {
 
         public static final String URBANISTICA = "urbanistica";

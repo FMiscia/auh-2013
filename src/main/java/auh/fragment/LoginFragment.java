@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import auh.activity.StreamActivity;
-import auh.helper.GAccount;
+import auh.helper.AccountHelper;
 import it.auh.R;
 
 public class LoginFragment extends Fragment {
@@ -27,7 +27,7 @@ public class LoginFragment extends Fragment {
                 ImageButton googleButton =(ImageButton) view.findViewById(R.id.googleConnect);
                 ImageButton facebookButton =(ImageButton) view.findViewById(R.id.facebookConnect);
 
-                final GAccount account = new GAccount(activity.getApplicationContext());
+                final AccountHelper account = new AccountHelper(activity.getApplicationContext());
 
                 final String gname = account.getGname();
                 final String fname = account.getFBname();

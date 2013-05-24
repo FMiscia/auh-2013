@@ -4,6 +4,7 @@ import android.app.Application;
 import auh.domain.Comment;
 import auh.domain.Rfc;
 import auh.domain.User;
+import it.auh.R;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -70,10 +71,7 @@ public class NativeApp extends Application
                 this._users.add(giuseppe);
 
                 Rfc piscina = new Rfc();
-                piscina.setContent("Sed sed accumsan urna. Mauris dolor odio, convallis sit amet eleifend ac, pellentesque sit amet neque. " +
-                        "Aliquam aliquet orci rhoncus lorem ultrices ut semper nibh fermentum. Aliquam erat volutpat. " +
-                        "Nam urna velit, varius at sollicitudin eu, luctus nec neque. Curabitur interdum nibh quis nisl rhoncus " +
-                        "sit amet venenatis velit condimentum. Aenean eros dolor, ornare consequat dignissim tincidunt, vulputate non quam.");
+                piscina.setContent(R.drawable.splash_pages_widget);
                 piscina.setTitle("Proposta costruzione piscina comunale");
                 Calendar cal1 = Calendar.getInstance();
                 cal1.set(2012, 10, 10);
@@ -81,37 +79,35 @@ public class NativeApp extends Application
                 cal1.set(2013, 9, 11);
                 piscina.setEnd(cal1);
                 piscina.addTopic(Topic.ATTIVITA_SOCIALI,Topic.LAVORO,Topic.URBANISTICA,Topic.SPORT);
-                piscina.addComment(new Comment(giuseppe,"bell'iniziativa"));
+                piscina.addComment(new Comment(giuseppe,"Proposta 1"));
+                piscina.addComment(new Comment(genni,"Proposta 2"));
                 piscina.setType(Rfc.RfcType.BOOLEAN);
 
                 Rfc attivita = new Rfc();
-                attivita.setContent("Sed sed accumsan urna. Mauris dolor odio, convallis sit amet eleifend ac, pellentesque sit amet neque. " +
-                        "Aliquam aliquet orci rhoncus lorem ultrices ut semper nibh fermentum. Aliquam erat volutpat. " +
-                        "Nam urna velit, varius at sollicitudin eu, luctus nec neque. Curabitur interdum nibh quis nisl rhoncus " +
-                        "sit amet venenatis velit condimentum. Aenean eros dolor, ornare consequat dignissim tincidunt, vulputate non quam.");
-                attivita.setTitle("Contributi per attività sportive");
+                attivita.setContent(R.drawable.splash_pages_marked_widget);
+                attivita.setTitle("Contributi per attivita' sportive");
                 Calendar cal2 = Calendar.getInstance();
                 cal2.set(2012, 10, 10);
                 attivita.setStart(cal2);
                 cal2.set(2013, 9, 11);
                 attivita.setEnd(cal2);
                 attivita.addTopic(Topic.ATTIVITA_SOCIALI, Topic.SPORT);
-                attivita.addComment(new Comment(giuseppe, "bell'iniziativa"));
+                attivita.addComment(new Comment(giuseppe, "Proposta 1"));
+                attivita.addComment(new Comment(daniele, "Proposta 2"));
+                attivita.addComment(new Comment(genni,"Proposta 3"));
                 attivita.setType(Rfc.RfcType.CHOISE);
 
                 Rfc spese = new Rfc();
-                spese.setContent("Sed sed accumsan urna. Mauris dolor odio, convallis sit amet eleifend ac, pellentesque sit amet neque. " +
-                        "Aliquam aliquet orci rhoncus lorem ultrices ut semper nibh fermentum. Aliquam erat volutpat. " +
-                        "Nam urna velit, varius at sollicitudin eu, luctus nec neque. Curabitur interdum nibh quis nisl rhoncus " +
-                        "sit amet venenatis velit condimentum. Aenean eros dolor, ornare consequat dignissim tincidunt, vulputate non quam.");
-                spese.setTitle("Contributi per attività sportive");
+                spese.setContent(R.drawable.splash_chart_widget);
+                spese.setTitle("Resport delle spese");
                 Calendar cal3 = Calendar.getInstance();
                 cal3.set(2012, 10, 10);
                 spese.setStart(cal3);
                 cal3.set(2013, 9, 11);
                 spese.setEnd(cal3);
                 spese.addTopic(Topic.ECONOMIA);
-                spese.addComment(new Comment(giuseppe, "bell'iniziativa"));
+                spese.addComment(new Comment(francesco, "Proposta 1"));
+                spese.addComment(new Comment(francesca, "Proposta 2"));
                 spese.setType(Rfc.RfcType.SIMPLE);
 
                 this._rfcs.add(piscina);

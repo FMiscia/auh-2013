@@ -1,28 +1,25 @@
 package auh.helper;
 
-import android.accounts.Account;
 import android.accounts.AccountManager;
 import android.content.Context;
 
-/**
- * Created by francesco on 22/05/13.
- */
-public class GAccount {
+public class AccountHelper
+{
 
         private AccountManager accountManager;
         private String Gname = null;
         private String FBname = null;
 
-        public GAccount(Context appContext){
+        public AccountHelper(Context appContext){
                 accountManager = (AccountManager) appContext.getSystemService(Context.ACCOUNT_SERVICE);
-                Account[] accounts = accountManager.getAccounts();
+                android.accounts.Account[] accounts = accountManager.getAccounts();
                 this.setUser(accounts);
 
         }
 
-        private void setUser(Account[] accounts){
+        private void setUser(android.accounts.Account[] accounts){
 
-                for(Account account: accounts)
+                for(android.accounts.Account account: accounts)
                 {
                         if(account.type.equalsIgnoreCase("com.google"))
                         {

@@ -32,7 +32,6 @@ public class StreamActivity extends Activity
 
                 ListView list =(ListView) findViewById(R.id.list);
 
-                // Getting adapter by passing xml data ArrayList
                 adapter = new StreamAdapter(this, NativeApp.getInstance().getRfcs());
                 list.setAdapter(adapter);
 
