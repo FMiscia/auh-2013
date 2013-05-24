@@ -88,6 +88,14 @@ public class ProfileActivity extends Activity {
                                 Intent b = new Intent(this,ProfileActivity.class);
                                 startActivity(b);
 
+                        case R.id.settings:
+                                Intent b1 = new Intent(this,SettingActivity.class);
+                                startActivity(b1);
+
+                        case R.id.add:
+                                Intent b2 = new Intent(this,NotifyActivity.class);
+                                startActivity(b2);
+
                         default:
                                 return super.onOptionsItemSelected(item);
                 }

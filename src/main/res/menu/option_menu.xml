@@ -6,11 +6,22 @@
           android:showAsAction="ifRoom|collapseActionView"
           android:actionViewClass="android.widget.AutoCompleteTextView"/>
 
-
     <item android:id="@+id/profile"
           android:title="menu profile"
           android:icon="@android:drawable/ic_menu_agenda"
           android:showAsAction="ifRoom|collapseActionView"
           android:actionViewClass="android.widget.ImageView" />
+
+     <item android:id="@+id/settings"
+              android:title="Settings"
+              android:icon="@android:drawable/ic_menu_manage"
+              android:showAsAction="ifRoom|collapseActionView"
+              android:actionViewClass="android.widget.ImageView" />
+
+     <item android:id="@+id/add"
+              android:title="Notifica"
+              android:icon="@android:drawable/ic_input_add"
+              android:showAsAction="ifRoom|collapseActionView"
+              android:actionViewClass="android.widget.ImageView" />
 
 </menu>

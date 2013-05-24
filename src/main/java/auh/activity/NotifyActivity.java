@@ -1,56 +1,36 @@
 package auh.activity;
 
-import java.util.ArrayList;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.*;
-import android.view.inputmethod.EditorInfo;
-import android.widget.*;
-import android.widget.AdapterView.OnItemClickListener;
-import auh.adapter.StreamAdapter;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
+import android.widget.Button;
+import android.widget.Toast;
 import auh.helper.NativeApp;
 import it.auh.R;
 
-public class StreamActivity extends Activity
-{
-        StreamAdapter adapter;
-        private String username;
+import java.util.ArrayList;
 
+/**
+ * Created by francesco on 24/05/13.
+ */
+public class NotifyActivity extends Activity {
         @Override
-        protected void onCreate(Bundle state)
-        {
+        protected
+        void onCreate(Bundle state){
                 super.onCreate(state);
-
-                this.username = this.getIntent().getExtras().getString("username");
-                this.setContentView(R.layout.stream_panel);
-
-                TextView userView = (TextView) findViewById(R.id.username);
-                userView.setText(this.username);
-
-                ListView list =(ListView) findViewById(R.id.list);
-
-                // Getting adapter by passing xml data ArrayList
-                adapter = new StreamAdapter(this, NativeApp.getInstance().getRfcs());
-                list.setAdapter(adapter);
-
-                // Click event for single list row
-                list.setOnItemClickListener(new OnItemClickListener() {
+                setContentView(R.layout.notify_panel);
+                Button notify = (Button) findViewById(R.id.notificabutton);
+                notify.setOnClickListener(new View.OnClickListener() {
                         @Override
-                        public void onItemClick(AdapterView<?> parent, View view, int position, long id)
-                        {
-                                Intent i = new Intent(StreamActivity.this, RfcActivity.class);
-                                Bundle extras = new Bundle();
-                                extras.putInt("rfc_index", position);
-                                i.putExtras(extras);
-                                StreamActivity.this.startActivity(i);
+                        public void onClick(View view) {
+                                Toast.makeText(NotifyActivity.this.getApplicationContext(),"Your Notification Has Been Sent",Toast.LENGTH_LONG).show();
                         }
                 });
-
         }
-
         @Override
         public boolean onCreateOptionsMenu(Menu menu) {
                 MenuInflater inflater = getMenuInflater();
@@ -74,11 +54,11 @@ public class StreamActivity extends Activity
                         public boolean onKey(View v, int keyCode, KeyEvent event) {
                                 if ((event.getAction() == KeyEvent.ACTION_DOWN) &&
                                         (keyCode == KeyEvent.KEYCODE_ENTER))  {
-                                        Intent intent = new Intent(StreamActivity.this,ProfileActivity.class);
+                                        Intent intent = new Intent(NotifyActivity.this,ProfileActivity.class);
                                         Bundle bundle = new Bundle();
                                         bundle.putString("username", textView.getText().toString());
                                         intent.putExtras(bundle);
-                                        StreamActivity.this.startActivity(intent);
+                                        NotifyActivity.this.startActivity(intent);
                                 }
                                 return true;
                         }
@@ -97,21 +77,17 @@ public class StreamActivity extends Activity
                         case R.id.profile:
                                 Intent b = new Intent(this,ProfileActivity.class);
                                 startActivity(b);
-                                return true;
 
                         case R.id.settings:
                                 Intent b1 = new Intent(this,SettingActivity.class);
                                 startActivity(b1);
-                                return true;
 
                         case R.id.add:
                                 Intent b2 = new Intent(this,NotifyActivity.class);
                                 startActivity(b2);
-                                return true;
 
                         default:
                                 return super.onOptionsItemSelected(item);
-
                 }
         }
 
