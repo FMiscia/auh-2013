@@ -5,12 +5,8 @@ import android.app.Fragment;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.Window;
 import android.widget.LinearLayout;
 import android.widget.SearchView;
-import android.widget.Toast;
 import auh.fragment.LoginFragment;
 import it.auh.R;
 

@@ -24,15 +24,15 @@
                 android:layout_below="@+id/textView"
                 android:layout_alignParentLeft="true"
                 android:layout_marginLeft="10dp"
-                android:layout_marginRight="30dp"/>
+                android:layout_marginRight="60dp"/>
 
         <CheckBox
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/checkBox"
                 android:checked="false"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentRight="true"
-                android:layout_marginRight="10dp"
-                android:visibility="visible"/>
+                android:visibility="visible"
+                android:layout_alignParentEnd="false" android:layout_alignParentStart="false"
+                android:layout_below="@+id/textView" android:layout_alignParentRight="true"
+                android:layout_marginRight="11dp"/>
 </RelativeLayout>

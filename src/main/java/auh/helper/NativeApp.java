@@ -27,13 +27,13 @@ public class NativeApp extends Application
 
         private void initializeData()
         {
-                User francesco = new User("Francesco","Mente brillante. In questo momento sta partecipando all'AUHackathon");
+                User francesco = new User("fra.miscia@gmail.com","Mente brillante. In questo momento sta partecipando all'AUHackathon");
                 francesco.addSkill(Skill.INFORMATICA,50.0);
                 francesco.addSkill(Skill.MATEMATICA,30.0);
                 francesco.addSkill(Skill.SOCIOLOGIA,28.0);
                 francesco.addSkill(Skill.MEDICINA,18.0);
 
-                User daniele = new User("Daniele","Un super nerd, amante della linea di comando e soprattutto di Nano e non Vim");
+                User daniele = new User("dnlrlnd@gmail.com","Un super nerd, amante della linea di comando e soprattutto di Nano e non Vim");
                 daniele.addSkill(Skill.INFORMATICA,85.0);
                 daniele.addSkill(Skill.MATEMATICA,20.0);
                 daniele.addSkill(Skill.ECONOMIA,23.0);
