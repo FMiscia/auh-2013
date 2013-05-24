@@ -4,7 +4,11 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.view.*;
+import android.view.KeyEvent;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
@@ -14,9 +18,6 @@ import it.auh.R;
 
 import java.util.ArrayList;
 
-/**
- * Created by francesco on 24/05/13.
- */
 public class NotifyActivity extends Activity {
         @Override
         protected
@@ -36,7 +37,7 @@ public class NotifyActivity extends Activity {
                 MenuInflater inflater = getMenuInflater();
                 inflater.inflate(R.menu.option_menu, menu);
 
-                ArrayList<String> autocomplete = new ArrayList<String>();
+               /* ArrayList<String> autocomplete = new ArrayList<String>();
 
                 final MenuItem searchMenuItem = menu.findItem(R.id.search);
                 for(int i=0;i< NativeApp.getInstance().getUsers().size();i++){
@@ -63,7 +64,7 @@ public class NotifyActivity extends Activity {
                                 return true;
                         }
                 });
-                textView.setAdapter(adapter);
+                textView.setAdapter(adapter);*/
 
                 return super.onCreateOptionsMenu(menu);
         }
@@ -76,15 +77,21 @@ public class NotifyActivity extends Activity {
 
                         case R.id.profile:
                                 Intent b = new Intent(this,ProfileActivity.class);
+                                Bundle extras = new Bundle();
+                                extras.putString("username", NativeApp.getInstance().getLoggedName());
+                                b.putExtras(extras);
                                 startActivity(b);
+                                return true;
 
                         case R.id.settings:
-                                Intent b1 = new Intent(this,SettingActivity.class);
+                                Intent b1 = new Intent(this,SettingsActivity.class);
                                 startActivity(b1);
+                                return true;
 
                         case R.id.add:
                                 Intent b2 = new Intent(this,NotifyActivity.class);
                                 startActivity(b2);
+                                return true;
 
                         default:
                                 return super.onOptionsItemSelected(item);

@@ -1,18 +1,25 @@
 package auh.activity;
 
-import java.util.ArrayList;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.view.*;
-import android.view.inputmethod.EditorInfo;
-import android.widget.*;
+import android.view.KeyEvent;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
+import android.widget.ListView;
+import android.widget.TextView;
 import auh.adapter.StreamAdapter;
 import auh.helper.NativeApp;
 import it.auh.R;
+
+import java.util.ArrayList;
 
 public class StreamActivity extends Activity
 {
@@ -32,7 +39,6 @@ public class StreamActivity extends Activity
 
                 ListView list =(ListView) findViewById(R.id.list);
 
-                // Getting adapter by passing xml data ArrayList
                 adapter = new StreamAdapter(this, NativeApp.getInstance().getRfcs());
                 list.setAdapter(adapter);
 
@@ -56,7 +62,7 @@ public class StreamActivity extends Activity
                 MenuInflater inflater = getMenuInflater();
                 inflater.inflate(R.menu.option_menu, menu);
 
-                ArrayList<String> autocomplete = new ArrayList<String>();
+                /*ArrayList<String> autocomplete = new ArrayList<String>();
 
                 final MenuItem searchMenuItem = menu.findItem(R.id.search);
                 for(int i=0;i< NativeApp.getInstance().getUsers().size();i++){
@@ -83,7 +89,7 @@ public class StreamActivity extends Activity
                                 return true;
                         }
                 });
-                textView.setAdapter(adapter);
+                textView.setAdapter(adapter);*/
 
                 return super.onCreateOptionsMenu(menu);
         }
@@ -96,11 +102,14 @@ public class StreamActivity extends Activity
 
                         case R.id.profile:
                                 Intent b = new Intent(this,ProfileActivity.class);
+                                Bundle extras = new Bundle();
+                                extras.putString("username", NativeApp.getInstance().getLoggedName());
+                                b.putExtras(extras);
                                 startActivity(b);
                                 return true;
 
                         case R.id.settings:
-                                Intent b1 = new Intent(this,SettingActivity.class);
+                                Intent b1 = new Intent(this,SettingsActivity.class);
                                 startActivity(b1);
                                 return true;
 

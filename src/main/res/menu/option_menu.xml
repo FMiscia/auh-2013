@@ -1,10 +1,10 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android" >
 
-    <item android:id="@+id/search"
+    <!--<item android:id="@+id/search"
           android:title="menu search"
           android:icon="@android:drawable/ic_menu_search"
           android:showAsAction="ifRoom|collapseActionView"
-          android:actionViewClass="android.widget.AutoCompleteTextView"/>
+          android:actionViewClass="android.widget.AutoCompleteTextView"/>-->
 
     <item android:id="@+id/profile"
           android:title="menu profile"

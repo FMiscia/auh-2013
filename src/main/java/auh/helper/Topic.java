@@ -4,9 +4,6 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 
-/**
- * Created by francesco on 23/05/13.
- */
 public class Topic {
 
         public static final String URBANISTICA = "urbanistica";

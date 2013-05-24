@@ -50,7 +50,7 @@ public class StreamAdapter extends BaseAdapter {
         {
                 View vi = convertView;
                 if (convertView == null) {
-                        vi = this._inflater.inflate(R.layout.list_row, null);
+                        vi = this._inflater.inflate(R.layout.rfc_row, null);
                 }
 
                 TextView title =(TextView) vi.findViewById(R.id.title);

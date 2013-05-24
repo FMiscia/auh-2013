@@ -1,6 +1,8 @@
 package auh.domain;
 
+import android.view.View;
 import auh.activity.RfcActivity;
+import it.auh.R;
 
 import java.util.*;
 
@@ -15,7 +17,7 @@ public class Rfc
 
         private String title;
 
-        private String content;
+        private Integer content;
 
         private LinkedList<String> topics = new LinkedList<String>();
 
@@ -35,11 +37,11 @@ public class Rfc
                 this.title = title;
         }
 
-        public String getContent() {
-                return content;
+        public Integer getContent() {
+                return this.content;
         }
 
-        public void setContent(String content) {
+        public void setContent(Integer content) {
                 this.content = content;
         }
 
@@ -79,18 +81,9 @@ public class Rfc
                 return this.comments;
         }
 
-        public void addComment(Comment comment) {
-
-                if (this.comments.isEmpty()) {
-                        this.comments.add(comment);
-                } else {
-                        for(int i=0; i<this.comments.size(); i++) {
-                                if(this.comments.get(i).getRank() < comment.getRank()) {
-                                        this.comments.set(i,comment);
-                                        break;
-                                }
-                        }
-                }
+        public void addComment(Comment comment)
+        {
+                this.comments.add(comment);
         }
 
         public void addTopic(String... topic){

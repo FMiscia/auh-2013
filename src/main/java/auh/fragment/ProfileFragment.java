@@ -2,22 +2,21 @@ package auh.fragment;
 
 import android.app.Activity;
 import android.app.Fragment;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
-import android.widget.ExpandableListView;
 import android.widget.TextView;
+import auh.activity.ProfileActivity;
 import auh.helper.NativeApp;
-import auh.helper.Skill;
 import it.auh.R;
 
 import java.util.ArrayList;
 
-/**
- * Created by francesco on 24/05/13.
- */
 public class ProfileFragment extends Fragment {
 
         private View view;
@@ -27,7 +26,7 @@ public class ProfileFragment extends Fragment {
         public ProfileFragment(final LayoutInflater inflater, final ViewGroup group, final Activity activity){
 
                 super();
-                this.view = inflater.inflate(R.layout.profile_panel, group, true);
+                this.view = inflater.inflate(R.layout.profile_activity, group, true);
                 this.username = (TextView) view.findViewById(R.id.username);
                 this.username.setText(NativeApp.getInstance().getLoggedName());
 
@@ -37,9 +36,29 @@ public class ProfileFragment extends Fragment {
 
                 ArrayAdapter<String> adapter = new ArrayAdapter<String>(activity,
                         android.R.layout.simple_dropdown_item_1line, this.autocomplete);
-                AutoCompleteTextView textView = (AutoCompleteTextView)
+                final AutoCompleteTextView textView = (AutoCompleteTextView)
                         this.view.findViewById(R.id.searchProfile);
                 textView.setAdapter(adapter);
+                textView.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+                        @Override
+                        public void onFocusChange(View view, boolean b) {
+                                textView.setText("");
+                        }
+                });
+                textView.setOnKeyListener(new View.OnKeyListener() {
+                        public boolean onKey(View v, int keyCode, KeyEvent event) {
+                                if ((event.getAction() == KeyEvent.ACTION_DOWN) &&
+                                        (keyCode == KeyEvent.KEYCODE_ENTER))  {
+                                        Intent intent = new Intent(activity,ProfileActivity.class);
+                                        Bundle bundle = new Bundle();
+                                        bundle.putString("username", textView.getText().toString());
+                                        intent.putExtras(bundle);
+                                        activity.startActivity(intent);
+                                }
+                                return true;
+                        }
+                });
+
 
 
         }

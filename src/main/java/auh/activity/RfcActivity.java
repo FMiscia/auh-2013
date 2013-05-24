@@ -4,15 +4,23 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.view.*;
-import android.view.inputmethod.EditorInfo;
+import android.view.KeyEvent;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
-import android.widget.TextView;
+import android.widget.ImageView;
+import android.widget.ListView;
+import auh.adapter.CommentsAdapter;
+import auh.domain.Comment;
+import auh.domain.Rfc;
 import auh.helper.NativeApp;
 import it.auh.R;
 
 import java.util.ArrayList;
+import java.util.Queue;
 
 public class RfcActivity extends Activity {
 
@@ -20,10 +28,28 @@ public class RfcActivity extends Activity {
         protected void onCreate(Bundle state){
                 super.onCreate(state);
 
-                 Integer rfcIndex = this.getIntent().getExtras().getInt("rfc_index");
-
-
                 this.setContentView(R.layout.rfc_activity);
+
+                Integer rfcIndex = this.getIntent().getExtras().getInt("rfc_index");
+                Rfc rfc = NativeApp.getInstance().getRfcs().get(rfcIndex);
+
+                CommentsAdapter adapter = new CommentsAdapter(this, R.layout.comment_row, this._getData(rfc.getComments()));
+
+                ImageView splash =(ImageView) this.findViewById(R.id.widget_splash);
+                splash.setImageResource(rfc.getContent());
+
+                ListView list =(ListView) this.findViewById(R.id.comments_list);
+                list.setAdapter(adapter);
+        }
+
+        private ArrayList<Comment> _getData(Queue<Comment> comments)
+        {
+                ArrayList<Comment> cs = new ArrayList<Comment>();
+                for (Comment comment: comments) {
+                        cs.add(comment);
+                }
+
+                return cs;
         }
 
         @Override
@@ -31,7 +57,7 @@ public class RfcActivity extends Activity {
                 MenuInflater inflater = getMenuInflater();
                 inflater.inflate(R.menu.option_menu, menu);
 
-                ArrayList<String> autocomplete = new ArrayList<String>();
+                /*ArrayList<String> autocomplete = new ArrayList<String>();
 
                 final MenuItem searchMenuItem = menu.findItem(R.id.search);
                 for(int i=0;i< NativeApp.getInstance().getUsers().size();i++){
@@ -58,7 +84,7 @@ public class RfcActivity extends Activity {
                                 return true;
                         }
                 });
-                textView.setAdapter(adapter);
+                textView.setAdapter(adapter);*/
 
                 return super.onCreateOptionsMenu(menu);
         }
@@ -72,14 +98,20 @@ public class RfcActivity extends Activity {
                         case R.id.profile:
                                 Intent b = new Intent(this,ProfileActivity.class);
                                 startActivity(b);
+                                Bundle extras = new Bundle();
+                                extras.putString("username", NativeApp.getInstance().getLoggedName());
+                                b.putExtras(extras);
+                                return true;
 
                         case R.id.settings:
-                                Intent b1 = new Intent(this,SettingActivity.class);
+                                Intent b1 = new Intent(this,SettingsActivity.class);
                                 startActivity(b1);
+                                return true;
 
                         case R.id.add:
                                 Intent b2 = new Intent(this,NotifyActivity.class);
                                 startActivity(b2);
+                                return true;
 
                         default:
                                 return super.onOptionsItemSelected(item);

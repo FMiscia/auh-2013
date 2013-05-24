@@ -4,11 +4,13 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.view.*;
-import android.view.inputmethod.EditorInfo;
+import android.view.KeyEvent;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
-import android.widget.TextView;
 import auh.helper.NativeApp;
 import it.auh.R;
 
@@ -17,20 +19,21 @@ import java.util.ArrayList;
 /**
  * Created by francesco on 23/05/13.
  */
-public class SettingActivity extends Activity {
+public class SettingsActivity extends Activity {
 
         @Override
         protected
         void onCreate(Bundle state){
                 super.onCreate(state);
 
+                this.setContentView(R.layout.settings_activity);
         }
 
         @Override
         public boolean onCreateOptionsMenu(Menu menu) {
                 MenuInflater inflater = getMenuInflater();
                 inflater.inflate(R.menu.option_menu, menu);
-
+                /*
                 ArrayList<String> autocomplete = new ArrayList<String>();
 
                 final MenuItem searchMenuItem = menu.findItem(R.id.search);
@@ -49,16 +52,16 @@ public class SettingActivity extends Activity {
                         public boolean onKey(View v, int keyCode, KeyEvent event) {
                                 if ((event.getAction() == KeyEvent.ACTION_DOWN) &&
                                         (keyCode == KeyEvent.KEYCODE_ENTER))  {
-                                        Intent intent = new Intent(SettingActivity.this,ProfileActivity.class);
+                                        Intent intent = new Intent(SettingsActivity.this,ProfileActivity.class);
                                         Bundle bundle = new Bundle();
                                         bundle.putString("username", textView.getText().toString());
                                         intent.putExtras(bundle);
-                                        SettingActivity.this.startActivity(intent);
+                                        SettingsActivity.this.startActivity(intent);
                                 }
                                 return true;
                         }
                 });
-                textView.setAdapter(adapter);
+                textView.setAdapter(adapter);*/
 
                 return super.onCreateOptionsMenu(menu);
         }
@@ -71,15 +74,21 @@ public class SettingActivity extends Activity {
 
                         case R.id.profile:
                                 Intent b = new Intent(this,ProfileActivity.class);
+                                Bundle extras = new Bundle();
+                                extras.putString("username", NativeApp.getInstance().getLoggedName());
+                                b.putExtras(extras);
                                 startActivity(b);
+                                return true;
 
                         case R.id.settings:
-                                Intent b1 = new Intent(this,SettingActivity.class);
+                                Intent b1 = new Intent(this,SettingsActivity.class);
                                 startActivity(b1);
+                                return true;
 
                         case R.id.add:
                                 Intent b2 = new Intent(this,NotifyActivity.class);
                                 startActivity(b2);
+                                return true;
 
                         default:
                                 return super.onOptionsItemSelected(item);

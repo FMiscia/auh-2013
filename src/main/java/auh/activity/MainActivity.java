@@ -1,15 +1,14 @@
 package auh.activity;
 
-import android.app.Fragment;
-import android.view.LayoutInflater;
-import android.widget.*;
-import auh.fragment.LoginFragment;
 import android.app.Activity;
+import android.app.Fragment;
 import android.content.Context;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.widget.LinearLayout;
+import android.widget.SearchView;
+import auh.fragment.LoginFragment;
 import it.auh.R;
-
-import java.util.ArrayList;
 
 public class MainActivity extends Activity
 {
