@@ -25,32 +25,32 @@ public class NativeApp extends Application
 
         private void initializeData()
         {
-                User francesco = new User("fra.miscia@gmail.com","Mente brillante. In questo momento sta partecipando all'AUHackathon");
+                User francesco = new User("fra.miscia@gmail.com","Mente brillante. In questo momento sta partecipando all'AUHackathon","photo");
                 francesco.addSkill(Skill.INFORMATICA,50.0);
                 francesco.addSkill(Skill.MATEMATICA,30.0);
                 francesco.addSkill(Skill.SOCIOLOGIA,28.0);
                 francesco.addSkill(Skill.MEDICINA,18.0);
 
-                User daniele = new User("dnlrlnd@gmail.com","Un super nerd, amante della linea di comando e soprattutto di Nano e non Vim");
+                User daniele = new User("dnlrlnd@gmail.com","Un super nerd, amante della linea di comando e soprattutto di Nano e non Vim","dan");
                 daniele.addSkill(Skill.INFORMATICA,85.0);
                 daniele.addSkill(Skill.MATEMATICA,20.0);
                 daniele.addSkill(Skill.ECONOMIA,23.0);
                 francesco.addSkill(Skill.PSICOLOGIA,19.0);
 
-                User genni = new User("Genni","Morosa di Daniele,studentessa di Medicina");
+                User genni = new User("Genni","Morosa di Daniele,studentessa di Medicina","genni");
                 genni.addSkill(Skill.MEDICINA,88.0);
                 genni.addSkill(Skill.INFORMATICA,18.0);
                 genni.addSkill(Skill.PSICOLOGIA,25.0);
                 genni.addSkill(Skill.SOCIOLOGIA,10.0);
 
-                User francesca = new User("Francesca","Morosa di Francesco (il genio brillante), studentessa in biotecnologie");
+                User francesca = new User("Francesca","Morosa di Francesco (il genio brillante), studentessa in biotecnologie","fra");
                 francesca.addSkill(Skill.ECONOMIA,38.0);
                 francesca.addSkill(Skill.MEDICINA,50.0);
                 francesca.addSkill(Skill.ARCHITETTURA,70.0);
                 francesca.addSkill(Skill.PSICOLOGIA,47.0);
                 francesca.addSkill(Skill.SOCIOLOGIA,34.0);
 
-                User giuseppe = new User("Giuseppe","Insegnante all'istituto tecnico industriale di L'Aquila, ingegnere civile.");
+                User giuseppe = new User("Giuseppe","Insegnante all'istituto tecnico industriale di L'Aquila, ingegnere civile.","giuseppe");
                 giuseppe.addSkill(Skill.ARCHITETTURA,61.0);
                 giuseppe.addSkill(Skill.INGEGNERIA_AMBIENTALE,47.0);
                 giuseppe.addSkill(Skill.INGEGNERIA_CIVILE,90.0);
