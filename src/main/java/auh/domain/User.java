@@ -1,5 +1,6 @@
 package auh.domain;
 
+import android.widget.ImageView;
 import auh.helper.Skill;
 
 import java.util.HashMap;
@@ -9,18 +10,21 @@ public class User
 {
         private String name;
 
+        private String photo;
+
         private String info;
 
         private HashMap<String,Double> skill = new HashMap<String, Double>();
 
         private LinkedList<User> skillGiver = new LinkedList<User>();
 
-        public User(String n, String i){
+        public User(String n, String i, String p){
                 this.name = n;
                 this.info = i;
                 for(int j=0; j<Skill.skills.length; j++) {
                         this.skill.put(Skill.skills[j],0.0);
                 }
+                this.photo = p;
         }
 
         public String getName() {
@@ -64,5 +68,13 @@ public class User
                 for (int i = 0; i < users.length; ++i) {
                         this.skillGiver.add(users[i]);
                 }
+        }
+
+        public String getPhoto() {
+                return photo;
+        }
+
+        public void setPhoto(String photo) {
+                this.photo = photo;
         }
 }

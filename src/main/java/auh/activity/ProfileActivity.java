@@ -43,7 +43,7 @@ public class ProfileActivity extends Activity {
                 final String name = n;
 
                 ArrayList<User> users = NativeApp.getInstance().getUsers();
-                User user = new User(null,null);
+                User user = new User(null,null,null);
 
                 for(int i=0,l=users.size(); i<l; i++)
                         if(users.get(i).getName().equals(name))
@@ -95,7 +95,8 @@ public class ProfileActivity extends Activity {
                                                         Toast.makeText(getApplicationContext(),"You have unskilled "+name+" !",Toast.LENGTH_LONG).show();
                                         }
                                 });
-                                img.setImageResource(R.drawable.dan);
+                                int imageResource = getResources().getIdentifier("drawable/"+user.getPhoto(), null, getPackageName());
+                                img.setImageResource(imageResource);
 
                         }
 
